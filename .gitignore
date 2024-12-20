@@ -1,3 +1,5 @@
-*~
-try.py
-oauth.txt
+.venv
+albums/*
+__pycache__
+README.md
+.DS_Store
