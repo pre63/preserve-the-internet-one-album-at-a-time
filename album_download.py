@@ -10,7 +10,7 @@ Replace with your API key
 You can get an anonymous key for public data access from your browser 
   inspector for API requests as `api_key`.
 """
-API_KEY = "8c7914821492f676d9bbd6ddb68cc62b"
+API_KEY = "5a64eb9760975adebc588c8ad7dde314"
 
 
 def fetch_photoset_photos(api_key, photoset_id):

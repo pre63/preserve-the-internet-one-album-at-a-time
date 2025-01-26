@@ -194,13 +194,34 @@ PHOTO_TEMPLATE = """
         <p><a href="{{ original_link }}" target="_blank">View on Flickr</a></p>
         <nav>
             {% if prev_photo %}
-            <a href="/album/{{ album_id }}/photo/{{ prev_photo }}">← Previous</a>
+            <a href="/album/{{ album_id }}/photo/{{ prev_photo }}" id="prev-link">← Previous</a>
             {% endif %}
             {% if next_photo %}
-            <a href="/album/{{ album_id }}/photo/{{ next_photo }}">Next →</a>
+            <a href="/album/{{ album_id }}/photo/{{ next_photo }}" id="next-link">Next →</a>
             {% endif %}
         </nav>
     </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            const LEFT_ARROW = 37;
+            const RIGHT_ARROW = 39;
+
+            if (event.keyCode === LEFT_ARROW) {
+                // Navigate to the previous photo if the "Previous" link exists
+                const prevLink = document.getElementById('prev-link');
+                if (prevLink) {
+                    window.location.href = prevLink.href;
+                }
+            } else if (event.keyCode === RIGHT_ARROW) {
+                // Navigate to the next photo if the "Next" link exists
+                const nextLink = document.getElementById('next-link');
+                if (nextLink) {
+                    window.location.href = nextLink.href;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
 """
